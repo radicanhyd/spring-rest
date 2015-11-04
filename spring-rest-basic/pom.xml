@@ -1,21 +1,111 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.myapp.rest</groupId>
-  <artifactId>spring-rest-basic</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>spring-rest-basic Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  <build>
-    <finalName>spring-rest-basic</finalName>
-  </build>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.myapp.rest</groupId>
+	<artifactId>spring-rest-basic</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>spring-rest-basic Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	
+	
+	
+	
+	<dependencies>
+		<!-- Spring MVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${version.spring}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<!-- Other Web dependencies -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${version.servlet}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		
+		<!-- Test Artifacts -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${version.spring}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<!-- Logging with SLF4J & LogBack -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${version.slf4j}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${version.slf4j}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${version.logback}</version>
+			<scope>runtime</scope>
+		</dependency>
+		
+
+	</dependencies>
+
+	<build>
+		<finalName>spring-rest-basic</finalName>
+	</build>
+
+	<properties>
+	
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<version.servlet>2.5</version.servlet>
+		
+		<jsp.version>2.2</jsp.version>
+		
+		<version.spring>3.2.13.RELEASE</version.spring>
+
+		<version.junit>4.11</version.junit>
+		
+		<version.slf4j>1.7.7</version.slf4j>
+		
+		<version.logback>1.1.2</version.logback>
+
+	</properties>
 </project>
